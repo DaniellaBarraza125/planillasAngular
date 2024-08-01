@@ -20,7 +20,6 @@ import { DropdownModule } from 'primeng/dropdown';
 })
 export class HeaderComponent {
     items: MenuItem[] | undefined;
-    user:MenuItem[] | undefined;
 
 
     constructor(private router: Router) {}
@@ -36,9 +35,9 @@ export class HeaderComponent {
                 route: '/teams',
                 items: [
                     {label: 'Crear', route: '/teams/create'}]
-       
-            },
-           
+    
+        },
+        
         ]
         
     }

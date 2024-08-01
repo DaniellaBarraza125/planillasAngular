@@ -5,6 +5,7 @@ import { ChipsModule } from 'primeng/chips';
 import { FormsModule } from '@angular/forms';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { ButtonModule } from 'primeng/button';
+import { FormDataInterface } from '../../interfaces/form-data-interface';
 
 
 
@@ -16,7 +17,8 @@ import { ButtonModule } from 'primeng/button';
   styleUrl: './create-team.component.scss'
 })
 export class CreateTeamComponent {
-  formData = {
+  formData:FormDataInterface
+   = {
     username: '',
     city: '',
 
