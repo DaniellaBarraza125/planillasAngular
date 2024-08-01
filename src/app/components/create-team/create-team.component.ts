@@ -1,16 +1,30 @@
 import { Component } from '@angular/core';
-import { InputTextModule } from 'primeng/inputtext';
+import { InputGroupModule } from 'primeng/inputgroup';
+import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
+import { ChipsModule } from 'primeng/chips';
 import { FormsModule } from '@angular/forms';
+import { FloatLabelModule } from 'primeng/floatlabel';
+import { ButtonModule } from 'primeng/button';
+
 
 
 @Component({
   selector: 'app-create-team',
   standalone: true,
-  imports: [FormsModule, InputTextModule],
+  imports: [FloatLabelModule, ButtonModule,ChipsModule,FormsModule, InputGroupModule, InputGroupAddonModule],
   templateUrl: './create-team.component.html',
   styleUrl: './create-team.component.scss'
 })
 export class CreateTeamComponent {
-  value: string = '';
+  formData = {
+    username: '',
+    city: '',
 
+  };
+
+  createTeam() {
+    console.log('Formulario enviado:', this.formData);
+  }
 }
+
+
