@@ -8,30 +8,30 @@ import { ButtonModule } from 'primeng/button';
 import { FormDataInterface } from '../../interfaces/form-data-interface';
 import { TeamService } from '../../services/team-service.service'; 
 import { TeamInterface } from '../../interfaces/team-interface';
-import { Message } from 'primeng/api';
-import { MessagesModule } from 'primeng/messages';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
+
 
 
 @Component({
   selector: 'app-create-team',
   standalone: true,
-  imports: [FloatLabelModule, ButtonModule, MessagesModule, ChipsModule, FormsModule, InputGroupModule, InputGroupAddonModule],
+  imports: [FloatLabelModule, ButtonModule, ToastModule, ChipsModule, FormsModule, InputGroupModule, InputGroupAddonModule],
   templateUrl: './create-team.component.html',
   styleUrls: ['./create-team.component.scss'],
-  providers: []
+  providers: [MessageService]
 })
-export class CreateTeamComponent implements OnInit {
-  messages: Message[] = [];
-  ngOnInit() {
-    this.messages = [{ severity: 'info', detail: 'Message Content' }];
-}
+export class CreateTeamComponent  {
+
 
   formData: FormDataInterface = {
     name: '',
     city: ''
   };
 
-  constructor(private teamService: TeamService, 
+  constructor(
+    private teamService: TeamService, 
+    private messageService: MessageService
   ) {}
 
   createTeam() {
@@ -44,10 +44,13 @@ export class CreateTeamComponent implements OnInit {
 
     this.teamService.createTeam(team).subscribe(
       response => {
-        console.error('Equipo Creado', team)
+        this.messageService.add({ severity: 'success', summary: 'Success', detail: `${response.msg} ${team.name}` });
+        console.error('Equipo Creado', response.msg)
+
 
       },
       error => {
+        this.messageService.add({ severity: 'error', summary: 'Success', detail: error.error.msg });
         console.error('Error al crear el equipo:', error)
       }
     );
