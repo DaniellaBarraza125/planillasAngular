@@ -28,7 +28,9 @@ export class HeaderComponent {
         this.items = [
             {
                 label: 'Torneos',
-                route: '/tournaments'          
+                route: '/tournaments',
+                items: [
+                    {label: 'Crear', route: '/tournament/create'}]       
             },
             {
                 label: 'Equipos',

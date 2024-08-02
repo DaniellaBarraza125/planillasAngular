@@ -50,7 +50,7 @@ export class CreateTeamComponent  {
 
       },
       error => {
-        this.messageService.add({ severity: 'error', summary: 'Success', detail: error.error.msg });
+        this.messageService.add({ severity: 'error', summary: 'Error', detail: error.error.msg });
         console.error('Error al crear el equipo:', error)
       }
     );
