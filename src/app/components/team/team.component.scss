@@ -1,0 +1,15 @@
+img{
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+
+@media screen and (min-width: 600px){
+#teamContainer{
+     width: 400px;
+        margin: 20px;
+        border: rgb(240, 234, 234) 1px solid;
+        border-radius: 10px;
+ }
+    
+}

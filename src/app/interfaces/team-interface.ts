@@ -1,5 +1,5 @@
 export interface TeamInterface {
-    id:object
+    id:string
     name:string
     city:string
 
