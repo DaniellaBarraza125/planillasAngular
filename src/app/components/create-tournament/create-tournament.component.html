@@ -1,7 +1,7 @@
-<div class="card flex flex-column gap-3 justify-content-center align-items-center vh-100">
-    <div class="pt-5">
+<div id="createTournamentContainer" class="card gap-3 ">
+    <div id="tournamentsInputs" class="gap-3 flex align-items-center">
 
-        <p-inputGroup class="py-2">
+        <p-inputGroup class=" py-2">
             <p-inputGroupAddon>
                 <i class="pi pi-users"></i>
             </p-inputGroupAddon>
@@ -31,7 +31,8 @@
         </p-inputGroup>
 
     </div>
-    <p-button label="create tournament" (click)="createTournament()"></p-button>
-    <p-toast />
-
+    <div>
+        <p-button label="create tournament" (click)="createTournament()"></p-button>
+    </div>
 </div>
+<p-toast />
