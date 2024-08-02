@@ -8,27 +8,38 @@ img{
     flex-direction: column;
     align-items: center;
 }
-@media screen and (min-width: 600px){
 #teamContainer{
-     width: 15vw;
-        margin: 10px;
-        border: rgb(240, 234, 234) 1px solid;
-        border-radius: 10px;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
- }
- #teamCard{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
- }
- img{
-    width: 10vw;
-    height: 15vh;
-    margin: 10px;
+   margin: 15px;
+   border: rgb(240, 234, 234) 1px solid;
+   border-radius: 10px;
 
-    
- }
-    
+}
+@media screen and (min-width: 500px){
+#teamContainer{
+      width: 15vw;
+      margin: 10px;
+      border: rgb(240, 234, 234) 1px solid;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      min-width: 200px
+}
+#teamCard{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+}
+img{
+   width: 10vw;
+   height: 15vh;
+   margin: 10px;
+
+   
+}
+.delete{
+   display: flex;
+   justify-content: flex-end;
+}
+   
 }
