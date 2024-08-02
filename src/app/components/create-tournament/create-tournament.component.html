@@ -1,1 +1,37 @@
-<p>create-tournament works!</p>
+<div class="card flex flex-column gap-3 justify-content-center align-items-center vh-100">
+    <div class="pt-5">
+
+        <p-inputGroup class="py-2">
+            <p-inputGroupAddon>
+                <i class="pi pi-users"></i>
+            </p-inputGroupAddon>
+            <p-floatLabel>
+                <input id="name" type="text" pInputText [(ngModel)]="formData.name" />
+                <label for="name">Name</label>
+            </p-floatLabel>
+        </p-inputGroup>
+        <p-inputGroup class="py-3">
+            <p-inputGroupAddon>
+                <i class="pi pi-map-marker"></i>
+            </p-inputGroupAddon>
+            <p-floatLabel>
+                <input id="place" type="text" pInputText [(ngModel)]="formData.place" />
+                <label for="city">Place</label>
+            </p-floatLabel>
+        </p-inputGroup>
+        <p-inputGroup class="py-3">
+            <p-inputGroupAddon>
+                <i class="pi pi-map-marker"></i>
+            </p-inputGroupAddon>
+            <p-floatLabel>
+                <p-calendar id="date" [(ngModel)]="formData.date" dateFormat="dd.mm.yy" />
+
+                <label for="city">date</label>
+            </p-floatLabel>
+        </p-inputGroup>
+
+    </div>
+    <p-button label="create tournament" (click)="createTournament()"></p-button>
+    <p-toast />
+
+</div>

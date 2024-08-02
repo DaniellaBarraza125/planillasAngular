@@ -28,7 +28,6 @@ export class CreateTournamentComponent {
   };
   constructor(private tournamentService:TournamentService,private messageService: MessageService) {}
 createTournament() {
-  console.log('Form Data:', this.formData);
     const tournament: TournamentInterface = {
       name: this.formData.name,
       place: this.formData.place,
@@ -37,11 +36,9 @@ createTournament() {
     this.tournamentService.createTournament(tournament).subscribe(
       response => {
         this.messageService.add({ severity: 'success', summary: 'Success', detail: `${response.msg} ${tournament.name}` });
-        console.error('Torneo Creado', tournament)
       },
       error => {
         this.messageService.add({ severity: 'error', summary: 'Error', detail: error.error.msg });
-        console.error('Error al crear el torneo:', error)
       }
     );
   }

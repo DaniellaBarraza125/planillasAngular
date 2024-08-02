@@ -45,13 +45,11 @@ export class CreateTeamComponent  {
     this.teamService.createTeam(team).subscribe(
       response => {
         this.messageService.add({ severity: 'success', summary: 'Success', detail: `${response.msg} ${team.name}` });
-        console.error('Equipo Creado', response.msg)
 
 
       },
       error => {
         this.messageService.add({ severity: 'error', summary: 'Error', detail: error.error.msg });
-        console.error('Error al crear el equipo:', error)
       }
     );
   }
