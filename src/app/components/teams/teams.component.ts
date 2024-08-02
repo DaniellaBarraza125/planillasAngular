@@ -2,17 +2,31 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { TeamInterface } from '../../interfaces/team-interface';
 import { TeamService } from '../../services/team-service.service';
+import { TeamComponent } from "../team/team.component";
+import { DataViewModule } from 'primeng/dataview';
 
 @Component({
   selector: 'app-teams',
   standalone: true,
-  imports: [CommonModule,],
+  imports: [CommonModule, TeamComponent,DataViewModule],
   templateUrl: './teams.component.html',
   styleUrl: './teams.component.scss'
 })
 export class TeamsComponent implements OnInit {
 
-  ngOnInit(): void {
-  }
+  public teams: Array<TeamInterface> = [];
+    constructor (private teamService: TeamService) {}
+    ngOnInit(): void {
+      this.getTeams();
+    }
+    getTeams(){
+      this.teamService.getTeams().subscribe({
+        next: (data) => {
+          this.teams = data;
+        },
+        error: (error) => {
+          console.log('error', error);}
+      })
+    }
 
 }
