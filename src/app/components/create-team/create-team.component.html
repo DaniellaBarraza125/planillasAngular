@@ -6,8 +6,8 @@
                 <i class="pi pi-users"></i>
             </p-inputGroupAddon>
             <p-floatLabel>
-                <input id="username" type="text" pInputText [(ngModel)]="formData.username" />
-                <label for="username">Username</label>
+                <input id="name" type="text" pInputText [(ngModel)]="formData.name" />
+                <label for="name">Username</label>
             </p-floatLabel>
         </p-inputGroup>
         <p-inputGroup class="py-3">
@@ -19,6 +19,7 @@
                 <label for="city">City</label>
             </p-floatLabel>
         </p-inputGroup>
+
     </div>
     <p-button label=" Crear equipo" (click)="createTeam()"></p-button>
 

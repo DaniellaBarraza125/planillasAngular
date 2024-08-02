@@ -6,27 +6,39 @@ import { FormsModule } from '@angular/forms';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { ButtonModule } from 'primeng/button';
 import { FormDataInterface } from '../../interfaces/form-data-interface';
-
-
+import { TeamService } from '../../services/team-service.service'; 
+import { TeamInterface } from '../../interfaces/team-interface'; 
 
 @Component({
   selector: 'app-create-team',
   standalone: true,
-  imports: [FloatLabelModule, ButtonModule,ChipsModule,FormsModule, InputGroupModule, InputGroupAddonModule],
+  imports: [FloatLabelModule, ButtonModule, ChipsModule, FormsModule, InputGroupModule, InputGroupAddonModule],
   templateUrl: './create-team.component.html',
-  styleUrl: './create-team.component.scss'
+  styleUrls: ['./create-team.component.scss']
 })
 export class CreateTeamComponent {
-  formData:FormDataInterface
-   = {
-    username: '',
-    city: '',
-
+  formData: FormDataInterface = {
+    name: '',
+    city: ''
   };
 
+  constructor(private teamService: TeamService) {}
+
   createTeam() {
-    console.log('Formulario enviado:', this.formData);
+    const team: TeamInterface = {
+  
+      name: this.formData.name,
+      city: this.formData.city
+      
+    };
+
+    this.teamService.createTeam(team).subscribe(
+      response => {
+        console.log('Equipo creado:', response);
+      },
+      error => {
+        console.error('Error al crear el equipo:', error);
+      }
+    );
   }
 }
-
-

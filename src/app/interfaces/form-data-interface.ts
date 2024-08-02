@@ -1,4 +1,4 @@
 export interface FormDataInterface {
-    username: string,
+    name: string,
     city: string,
 }
