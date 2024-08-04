@@ -18,7 +18,7 @@ export class TournamentComponent implements OnInit {
 
   @Input() tournament: TournamentInterface = {} as TournamentInterface;
   formattedDate: string = '';
-  @Output() deletedTournament = new EventEmitter<string>();
+  @Output() deletedTournament = new EventEmitter<number>();
 
   constructor(
     private datePipe: DatePipe,
