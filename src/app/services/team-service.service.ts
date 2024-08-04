@@ -18,4 +18,7 @@ export class TeamService {
   getTeams(): Observable<any> {
     return this.http.get(this.apiUrl);
   }
+  getTeamById(id: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/${id}`);
+  }
 }

@@ -4,11 +4,13 @@ import { TeamInterface } from '../../interfaces/team-interface';
 import { TeamService } from '../../services/team-service.service';
 import { DataViewModule } from 'primeng/dataview';
 import { TeamComponent } from '../team/team.component';
+import {  RouterLink, RouterModule } from '@angular/router';
+
 
 @Component({
   selector: 'app-teams',
   standalone: true,
-  imports: [CommonModule, DataViewModule, TeamComponent],
+  imports: [CommonModule, DataViewModule,RouterModule, RouterLink, TeamComponent],
   templateUrl: './teams.component.html',
   styleUrls: ['./teams.component.scss']
 })

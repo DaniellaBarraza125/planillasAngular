@@ -1,11 +1,13 @@
-<div class="dataviewContainer">
-    <p-dataView #dv [value]="teams" [rows]="10" [paginator]="true">
-        <ng-template pTemplate="list" let-teams>
-            <div class="grid grid-nogutter justify-content-center">
-                <div class="dataview">
-                    <app-team *ngFor="let team of teams" [team]="team"></app-team>
+<a class="team">
+    <div class="dataviewContainer">
+        <p-dataView #dv [value]="teams" [rows]="10" [paginator]="true">
+            <ng-template pTemplate="list" let-teams>
+                <div class="grid grid-nogutter justify-content-center">
+                    <div class="dataview">
+                        <app-team *ngFor="let team of teams" [team]="team"></app-team>
+                    </div>
                 </div>
-            </div>
-        </ng-template>
-    </p-dataView>
-</div>
+            </ng-template>
+        </p-dataView>
+    </div>
+</a>
