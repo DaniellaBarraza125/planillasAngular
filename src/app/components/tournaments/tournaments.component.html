@@ -1,12 +1,13 @@
+<app-create-tournament (tournamentCreated)="onTournamentCreated($event)"></app-create-tournament>
 <div class="dataviewContainer">
     <p-dataView #dv [value]="tournaments" [rows]="10" [paginator]="true">
         <ng-template pTemplate="list" let-teams>
             <div class="grid grid-nogutter justify-content-center">
                 <div class="dataview">
-                    <app-tournament *ngFor="let tournament of tournaments" [tournament]="tournament"></app-tournament>
+                    <app-tournament *ngFor="let tournament of tournaments" [tournament]="tournament"
+                        (deletedTournament)="onDeletedTournament($event)"></app-tournament>
                 </div>
             </div>
         </ng-template>
     </p-dataView>
 </div>
-{{tournaments|json}}

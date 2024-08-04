@@ -7,7 +7,7 @@ import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-team',
   standalone: true,
-  imports: [CommonModule, CardModule,RouterModule  ],
+  imports: [CommonModule, CardModule, RouterModule],
   templateUrl: './team.component.html',
   styleUrls: ['./team.component.scss']
 })

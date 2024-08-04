@@ -4,18 +4,17 @@ import { TeamInterface } from '../../interfaces/team-interface';
 import { TeamService } from '../../services/team-service.service';
 import { DataViewModule } from 'primeng/dataview';
 import { TeamComponent } from '../team/team.component';
-import {  RouterLink, RouterModule } from '@angular/router';
-
+import { RouterLink, RouterModule } from '@angular/router';
+import { CreateTeamComponent } from '../create-team/create-team.component';
 
 @Component({
   selector: 'app-teams',
   standalone: true,
-  imports: [CommonModule, DataViewModule,RouterModule, RouterLink, TeamComponent],
+  imports: [CommonModule, DataViewModule, RouterModule, RouterLink, TeamComponent, CreateTeamComponent],
   templateUrl: './teams.component.html',
   styleUrls: ['./teams.component.scss']
 })
 export class TeamsComponent implements OnInit {
-
   public teams: Array<TeamInterface> = [];
 
   constructor(private teamService: TeamService) {}
@@ -34,5 +33,9 @@ export class TeamsComponent implements OnInit {
         console.log('error', error);
       }
     });
+  }
+
+  onTeamCreated(newTeam: TeamInterface) {
+    this.teams.push(newTeam);
   }
 }

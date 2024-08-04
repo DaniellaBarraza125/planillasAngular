@@ -30,13 +30,17 @@ export class TournamentsComponent  implements OnInit{
     this.tournamentService.getTournaments().subscribe({
       next: (data) => {
         this.tournaments = data.tournaments;
-        console.log('Tournaments data received:', this.tournaments);
       },
       error: (error) => {
         console.log('error', error);
       }
     });
   }
+  onTournamentCreated(newTournament: TournamentInterface) {
+    this.tournaments.push(newTournament);
+  }
+  onDeletedTournament(tournamentId: string) {
 
-  
+    this.tournaments = this.tournaments.filter(t => t._id !== tournamentId);
+  }
 }

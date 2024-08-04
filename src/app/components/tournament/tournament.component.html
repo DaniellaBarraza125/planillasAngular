@@ -1,7 +1,7 @@
-<div id="teamContainer" class="card  justify-content-center p-4">
+<div id="teamContainer" class="card justify-content-center p-4">
     <div class="flex" id="teamCard">
         <div class="delete">
-            <i class="pi pi-times"></i>
+            <i class="pi pi-trash" (click)="confirmDelete()"></i>
         </div>
         <div id="tournamentInfo">
             <div id="textDiv">
@@ -13,6 +13,7 @@
                 <div class="text-sm">{{ formattedDate }}</div>
             </div>
         </div>
-
     </div>
 </div>
+
+<p-confirmDialog></p-confirmDialog>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { InputGroupModule } from 'primeng/inputgroup';
@@ -20,6 +20,7 @@ import { ToastModule } from 'primeng/toast';
   providers: [MessageService]
 })
 export class CreateTournamentComponent {
+  @Output() tournamentCreated = new EventEmitter<TournamentInterface>();
 
   formData: TournamentInterface = {
     name: '',
@@ -35,11 +36,20 @@ createTournament() {
     };
     this.tournamentService.createTournament(tournament).subscribe(
       response => {
-        this.messageService.add({ severity: 'success', summary: 'Success', detail: `${response.msg} ${tournament.name}` });
+        this.messageService.add({ severity: 'success', summary: 'Success', detail: `${response.msg} ${tournament.name}` })
+        this.tournamentCreated.emit(tournament)
+        this.resetform()
       },
       error => {
         this.messageService.add({ severity: 'error', summary: 'Error', detail: error.error.msg });
       }
     );
+  }
+  resetform(){
+    this.formData = {
+      name: '',
+      place: '',
+      date: ''
+    };
   }
 }

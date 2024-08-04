@@ -1,5 +1,5 @@
-<div class="card flex flex-column gap-3 justify-content-center align-items-center vh-100">
-    <div class="pt-5">
+<div class="card flex  gap-3 justify-content-center align-items-center vh-100">
+    <form (ngSubmit)="createTeam()" class="pt-5 flex align-items-center justify-content-center">
 
         <p-inputGroup class="py-2">
             <p-inputGroupAddon>
@@ -20,8 +20,8 @@
             </p-floatLabel>
         </p-inputGroup>
 
-    </div>
-    <p-button label=" Crear equipo" (click)="createTeam()"></p-button>
+        <p-button type="submit" label=" Crear equipo"></p-button>
+    </form>
 
 </div>
 <p-toast />

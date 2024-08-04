@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { InputGroupModule } from 'primeng/inputgroup';
 import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
 import { ChipsModule } from 'primeng/chips';
@@ -11,8 +11,6 @@ import { TeamInterface } from '../../interfaces/team-interface';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 
-
-
 @Component({
   selector: 'app-create-team',
   standalone: true,
@@ -21,8 +19,8 @@ import { MessageService } from 'primeng/api';
   styleUrls: ['./create-team.component.scss'],
   providers: [MessageService]
 })
-export class CreateTeamComponent  {
-
+export class CreateTeamComponent {
+  @Output() teamCreated = new EventEmitter<TeamInterface>();
 
   formData: FormDataInterface = {
     name: '',
@@ -36,17 +34,15 @@ export class CreateTeamComponent  {
 
   createTeam() {
     const team: TeamInterface = {
-      
       name: this.formData.name,
       city: this.formData.city
-      
     };
 
     this.teamService.createTeam(team).subscribe(
       response => {
         this.messageService.add({ severity: 'success', summary: 'Success', detail: `${response.msg} ${team.name}` });
-
-
+        this.teamCreated.emit(team);
+        this.resetForm();
       },
       error => {
         this.messageService.add({ severity: 'error', summary: 'Error', detail: error.error.msg });
@@ -54,4 +50,10 @@ export class CreateTeamComponent  {
     );
   }
 
+  resetForm() { 
+    this.formData = {
+      name: '',
+      city: ''
+    };
+  }
 }
