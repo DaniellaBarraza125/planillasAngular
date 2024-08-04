@@ -1,0 +1,13 @@
+<p-table [value]="players || []" [columns]="cols">
+    <ng-template pTemplate="header">
+        <tr>
+            <th *ngFor="let col of cols">{{ col.header }}</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-player>
+        <tr>
+            <td *ngFor="let col of cols">{{ player[col.field] }}</td>
+        </tr>
+    </ng-template>
+
+</p-table>

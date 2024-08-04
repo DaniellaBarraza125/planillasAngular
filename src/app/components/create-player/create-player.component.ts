@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { ChipsModule } from 'primeng/chips';
@@ -10,15 +10,17 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { Router, RouterModule, ActivatedRoute } from '@angular/router';
 import { PlayerInterface } from '../../interfaces/player-interface';
 import { PlayerService } from '../../services/player-service.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-create-player',
   standalone: true,
-  imports: [FloatLabelModule, ButtonModule, ToastModule, ChipsModule, FormsModule, InputGroupModule, InputNumberModule, InputGroupAddonModule, RouterModule],
+  imports: [FloatLabelModule, ButtonModule, ToastModule, ChipsModule, FormsModule, InputGroupModule, InputNumberModule, InputGroupAddonModule, RouterModule, CommonModule],
   templateUrl: './create-player.component.html',
   styleUrls: ['./create-player.component.scss']
 })
 export class CreatePlayerComponent implements OnInit {
+  @Input() players: PlayerInterface[] = [];
   formData: PlayerInterface = {
     name: '',
     city: '',
