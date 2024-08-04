@@ -11,10 +11,11 @@ import { RouterModule } from '@angular/router';
   templateUrl: './team.component.html',
   styleUrls: ['./team.component.scss']
 })
-export class TeamComponent implements OnInit {
+export class TeamComponent  {
   @Input() team: TeamInterface = {} as TeamInterface;
 
-  ngOnInit(): void {
-    console.log('Team component initialized with team:', this.team);
+ 
+  deleteTeam(): void {
+    console.log('Delete team:', this.team);
   }
 }

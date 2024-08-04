@@ -27,7 +27,7 @@ export class TeamsComponent implements OnInit {
     this.teamService.getTeams().subscribe({
       next: (data) => {
         this.teams = data.teams;
-        console.log('Teams data received:', this.teams);
+
       },
       error: (error) => {
         console.log('error', error);

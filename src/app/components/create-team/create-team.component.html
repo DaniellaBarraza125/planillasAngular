@@ -1,12 +1,12 @@
-<div class="card flex  gap-3 justify-content-center align-items-center vh-100">
-    <form class="pt-5 flex align-items-center justify-content-center">
+<div class="card flex gap-3 justify-content-center align-items-center vh-100">
+    <form (ngSubmit)="createTeam()" class="pt-5 flex align-items-center justify-content-center">
 
         <p-inputGroup class="py-2">
             <p-inputGroupAddon>
                 <i class="pi pi-users"></i>
             </p-inputGroupAddon>
             <p-floatLabel>
-                <input id="name" type="text" pInputText [(ngModel)]="formData.name" />
+                <input id="name" type="text" pInputText [(ngModel)]="formData.name" name="name" />
                 <label for="name">Team name</label>
             </p-floatLabel>
         </p-inputGroup>
@@ -15,13 +15,12 @@
                 <i class="pi pi-map-marker"></i>
             </p-inputGroupAddon>
             <p-floatLabel>
-                <input id="city" type="text" pInputText [(ngModel)]="formData.city" />
+                <input id="city" type="text" pInputText [(ngModel)]="formData.city" name="city" />
                 <label for="city">City</label>
             </p-floatLabel>
         </p-inputGroup>
 
-        <p-button type="submit" label=" Crear equipo" (click)="createTeam()"></p-button>
+        <p-button type="submit" label="Crear equipo"></p-button>
     </form>
-
 </div>
 <p-toast />
