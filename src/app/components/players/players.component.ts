@@ -25,8 +25,14 @@ export class PlayersComponent {
     { field: 'number', header: 'Number' },  
   ];
   
-  ngOnInit(): void {
-    console.log('Players:', this.players);
 
+  editPlayer(player: PlayerInterface) {
+ 
+    console.log('Edit player:', player);
+  }
+
+  deletePlayer(player: PlayerInterface) {
+
+    console.log('Delete player:', player);
   }
 }

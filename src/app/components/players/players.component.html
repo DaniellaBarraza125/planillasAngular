@@ -1,13 +1,17 @@
-<p-table [value]="players || []" [columns]="cols">
+<p-table styleClass="p-datatable-striped" [value]="players || []" [columns]="cols">
     <ng-template pTemplate="header">
         <tr>
             <th *ngFor="let col of cols">{{ col.header }}</th>
+            <th>Actions</th> <!-- Nueva columna para las acciones -->
         </tr>
     </ng-template>
     <ng-template pTemplate="body" let-player>
         <tr>
             <td *ngFor="let col of cols">{{ player[col.field] }}</td>
+            <td>
+                <i class="pi pi-pencil px-2" (click)="editPlayer(player)"></i>
+                <i class="pi pi-trash px-2" (click)="deletePlayer(player)"></i>
+            </td>
         </tr>
     </ng-template>
-
 </p-table>

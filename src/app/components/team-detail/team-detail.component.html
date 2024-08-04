@@ -1,17 +1,18 @@
-<div *ngIf="team; else loading">
+<div *ngIf="isLoading">
+    <p>Loading...</p>
+</div>
+
+<div *ngIf="!isLoading && team">
     <div class="team-detail-container">
         <h1>{{ team.name }}</h1>
         <p><strong>City:</strong> {{ team.city }}</p>
         <h2>Players:</h2>
-
+        <app-players [players]="team.players"></app-players>
+        <app-create-player (playerCreated)="onPlayerCreated($event)"></app-create-player>
 
     </div>
 </div>
 
-<ng-template #loading>
-    <div class="loading-container">
-        <p>Loading team details...</p>
-    </div>
-</ng-template>
-<app-create-player></app-create-player>
-<app-players [players]="team.players"></app-players>
+<div *ngIf="!isLoading && !team">
+    <p>No team details available.</p>
+</div>

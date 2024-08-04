@@ -5,6 +5,7 @@ import { TeamInterface } from '../../interfaces/team-interface';
 import { ActivatedRoute } from '@angular/router';
 import { CreatePlayerComponent } from "../create-player/create-player.component";
 import { PlayersComponent } from "../players/players.component";
+import { PlayerInterface } from '../../interfaces/player-interface';
 
 @Component({
   selector: 'app-team-detail',
@@ -16,6 +17,7 @@ import { PlayersComponent } from "../players/players.component";
 export class TeamDetailComponent  implements OnInit {
   
   team: TeamInterface = {} as TeamInterface;
+  isLoading = true; 
 
   constructor(private route: ActivatedRoute, private teamService: TeamService) {
   }
@@ -25,14 +27,24 @@ export class TeamDetailComponent  implements OnInit {
       this.teamService.getTeamById(id).subscribe({
         next: (data) => {
           this.team = data.team;
-          console.log(this.team)
+          if (this.team) {
+            this.team.players = this.team.players || []; 
+          }
+          this.isLoading = false;
         },
         error: (error) => {
-          console.error('Error fetching team details:', error);
+          console.error('Error fetching team details:', error)
+          this.isLoading = false;
         }
       });
-    }}
+    }
     
+  }
+  onPlayerCreated(player: PlayerInterface) {
+    if (this.team && this.team.players) {
+      this.team.players.push(player);
+    }
+  }
   }
 
 
