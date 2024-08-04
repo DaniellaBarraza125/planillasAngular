@@ -4,9 +4,6 @@
         <p><strong>City:</strong> {{ team.city }}</p>
         <h2>Players:</h2>
 
-        <!-- Botones para editar o eliminar el equipo -->
-        <button class="btn btn-primary">Edit Team</button>
-        <button class="btn btn-danger">Delete Team</button>
 
         <a [routerLink]="['/teams']" class="btn btn-secondary">Back to Teams</a>
     </div>
@@ -17,3 +14,4 @@
         <p>Loading team details...</p>
     </div>
 </ng-template>
+<app-create-player></app-create-player>

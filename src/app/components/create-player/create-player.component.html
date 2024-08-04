@@ -1,0 +1,33 @@
+<div id="createTournamentContainer" class="card gap-3 ">
+    <div id="tournamentsInputs" class="gap-3 flex align-items-center">
+
+        <p-inputGroup class=" py-2">
+            <p-inputGroupAddon>
+                <i class="pi pi-user"></i>
+            </p-inputGroupAddon>
+            <p-floatLabel>
+                <input id="name" type="text" pInputText [(ngModel)]="formData.name" />
+                <label for="name">Name</label>
+            </p-floatLabel>
+        </p-inputGroup>
+        <p-inputGroup class="py-3">
+            <p-inputGroupAddon>
+                <i class="pi pi-hashtag"></i>
+            </p-inputGroupAddon>
+            <input id="place" type="number" pInputText [(ngModel)]="formData.number" />
+        </p-inputGroup>
+        <p-inputGroup class="py-3">
+            <p-inputGroupAddon>
+                <i class="pi pi-map-marker"></i>
+            </p-inputGroupAddon>
+            <p-floatLabel>
+                <input id="place" type="text" pInputText [(ngModel)]="formData.city" />
+                <label for="city">city</label>
+            </p-floatLabel>
+        </p-inputGroup>
+
+    </div>
+    <div>
+        <p-button label="Add player"></p-button>
+    </div>
+</div>
