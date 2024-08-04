@@ -5,12 +5,12 @@ import { PlayerInterface } from '../interfaces/player-interface';
 @Injectable({
   providedIn: 'root'
 })
-export class PlayerServiceService {
+export class PlayerService {
   private apiUrl = 'http://localhost:8080/players';
 
   constructor(private http: HttpClient) { }
 
-  createPlayer(player: PlayerInterface): Observable<any> {
-    return this.http.post(this.apiUrl, player);
+  createPlayer(player: PlayerInterface, teamId: string): Observable<any> {
+    return this.http.post(`${this.apiUrl}/team/${teamId}`, player);
   }
 }

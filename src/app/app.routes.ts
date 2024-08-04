@@ -12,9 +12,7 @@ export const routes: Routes = [
     {path: 'tournaments', component: TournamentsComponent},
     {path: 'tournament/create', component: CreateTournamentComponent},
     {path: "teams", component: TeamsComponent},
-    {path: 'teams/create', component: CreateTeamComponent},
-    {path: 'teams/:id', component: TeamDetailComponent },
-    {path: 'create', component: CreatePlayerComponent},
-
-    { path: '**', redirectTo: '' }
+    { path: 'teams', component: TeamsComponent },
+    { path: 'teams/:_id', component: TeamDetailComponent },
+    { path: '', redirectTo: '/teams', pathMatch: 'full' }
 ];
