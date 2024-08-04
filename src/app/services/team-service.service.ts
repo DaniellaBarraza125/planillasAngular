@@ -21,4 +21,7 @@ export class TeamService {
   getTeamById(id: string): Observable<any> {
     return this.http.get(`${this.apiUrl}/${id}`);
   }
+  deleteTeam(id: string): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/${id}`);
+  }
 }

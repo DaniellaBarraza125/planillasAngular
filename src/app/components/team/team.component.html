@@ -1,15 +1,19 @@
-<div id="teamContainer" class="card  justify-content-center p-4" [routerLink]="['/teams', team._id]">
-    <div class="flex" id="teamCard">
-        <div class="delete">
-            <i class="pi pi-times" (click)="deleteTeam()"></i>
-        </div>
-        <div id="textDiv">
+<div id="teamContainer" class="flex flex-column justify-content-center p-4">
+    <div class="delete">
+        <i class="pi pi-trash p-2" (click)="confirmDelete()"></i>
+    </div>
+    <div [routerLink]="['/teams', team._id]">
+        <div class="flex" id="teamCard">
 
-            <img alt="Card" src="https://primefaces.org/cdn/primeng/images/card-ng.jpg" />
-        </div>
-        <div class="p-d-flex p-flex-column px-3" id="textDiv">
-            <div class="text-xl font-medium pb-4">{{ team.name }}</div>
-            <div class="text-sm">{{ team.city }}</div>
+            <div id="textDiv">
+
+                <img alt="Card" src="https://primefaces.org/cdn/primeng/images/card-ng.jpg" />
+            </div>
+            <div class="p-d-flex p-flex-column px-3" id="textDiv">
+                <div class="text-xl font-medium pb-4">{{ team.name }}</div>
+                <div class="text-sm">{{ team.city }}</div>
+            </div>
         </div>
     </div>
 </div>
+<p-confirmDialog></p-confirmDialog>

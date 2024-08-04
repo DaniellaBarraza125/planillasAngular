@@ -38,4 +38,7 @@ export class TeamsComponent implements OnInit {
   onTeamCreated(newTeam: TeamInterface) {
     this.teams.push(newTeam);
   }
+  onDeletedTeam(teamId: string) {
+    this.teams = this.teams.filter(t => t._id !== teamId);
+  }
 }
