@@ -1,5 +1,5 @@
 export interface TournamentInterface {
-        _id?: number
+        _id?: string
         name:string
         place:string
         date:string
