@@ -1,1 +1,18 @@
-<p>tournament works!</p>
+<div id="teamContainer" class="card  justify-content-center p-4">
+    <div class="flex" id="teamCard">
+        <div class="delete">
+            <i class="pi pi-times"></i>
+        </div>
+        <div id="tournamentInfo">
+            <div id="textDiv">
+                <img alt="Card" src="https://primefaces.org/cdn/primeng/images/card-ng.jpg" />
+            </div>
+            <div class="p-d-flex p-flex-column px-3" id="textDiv">
+                <div class="text-xl font-medium pb-4">{{ tournament.name }}</div>
+                <div class="text-sm">{{ tournament.place }}</div>
+                <div class="text-sm">{{ formattedDate }}</div>
+            </div>
+        </div>
+
+    </div>
+</div>

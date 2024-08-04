@@ -1,0 +1,54 @@
+img{
+    border-radius: 10%;
+    width: 100px;
+    height: 100%;
+    object-fit: cover;
+}
+
+#teamContainer{
+   margin: 15px;
+   border: rgb(240, 234, 234) 1px solid;
+   border-radius: 10px;
+
+#tournamentInfo{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 10px;
+
+}
+
+}
+.delete{
+    display: flex;
+    justify-content: flex-end;
+   
+}
+#teamCard{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+ }
+
+@media screen and (min-width: 500px){
+#teamContainer{
+      width: 15vw;
+      margin: 10px;
+      border: rgb(240, 234, 234) 1px solid;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: row;
+      min-width: 300px;
+    
+}
+#teamCard{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+ 
+}
+
+
+   
+}

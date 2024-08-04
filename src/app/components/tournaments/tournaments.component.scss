@@ -1,0 +1,14 @@
+.dataviewContainer{
+    border: rgb(228, 235, 237) 1px solid;
+    border-radius: 10px;
+    margin: 5%;
+}
+@media screen and (min-width: 600px){
+    .dataview{
+        margin: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+}

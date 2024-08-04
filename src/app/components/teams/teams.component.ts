@@ -1,4 +1,3 @@
-// teams.component.ts
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { TeamInterface } from '../../interfaces/team-interface';
