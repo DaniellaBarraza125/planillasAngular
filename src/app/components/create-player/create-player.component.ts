@@ -1,5 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router'; // Importa ActivatedRoute
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { ChipsModule } from 'primeng/chips';
@@ -8,36 +7,41 @@ import { InputGroupModule } from 'primeng/inputgroup';
 import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
 import { ToastModule } from 'primeng/toast';
 import { InputNumberModule } from 'primeng/inputnumber';
-import { PlayerService } from '../../services/player-service.service';
-import { MessageService } from 'primeng/api';
+import { Router, RouterModule, ActivatedRoute } from '@angular/router';
 import { PlayerInterface } from '../../interfaces/player-interface';
+import { PlayerService } from '../../services/player-service.service';
 
 @Component({
   selector: 'app-create-player',
   standalone: true,
-  imports: [FloatLabelModule, ButtonModule, ToastModule, ChipsModule, FormsModule, InputGroupModule, InputNumberModule, InputGroupAddonModule],
+  imports: [FloatLabelModule, ButtonModule, ToastModule, ChipsModule, FormsModule, InputGroupModule, InputNumberModule, InputGroupAddonModule, RouterModule],
   templateUrl: './create-player.component.html',
-  styleUrls: ['./create-player.component.scss'],
-  providers: [MessageService]
+  styleUrls: ['./create-player.component.scss']
 })
-export class CreatePlayerComponent {
-  @Input() teamId: string = ''; // Define teamId as an input property
-
+export class CreatePlayerComponent implements OnInit {
   formData: PlayerInterface = {
     name: '',
     city: '',
     number: 0,
-    team: ''  // This will be set to teamId when creating a player
+    team: ''
   };
 
+  teamId: string | null = null; // Property to hold the team ID
+
   constructor(
-    private playerService: PlayerService,
-    private messageService: MessageService
+    private route: ActivatedRoute,
+    private router: Router,
+    private playerService: PlayerService
   ) {}
+
+  ngOnInit(): void {
+    this.teamId = this.route.snapshot.paramMap.get('_id');
+    console.log('Team ID from route:', this.teamId);
+  }
 
   createPlayer() {
     if (!this.teamId) {
-      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Team ID is required' });
+      console.error('Team ID is not available');
       return;
     }
 
@@ -45,19 +49,16 @@ export class CreatePlayerComponent {
       name: this.formData.name,
       city: this.formData.city,
       number: this.formData.number,
-      team: this.teamId  // Set the team ID
+      team: this.teamId
     };
 
-    // Call createPlayer with both player and teamId
-    this.playerService.createPlayer(player, this.teamId).subscribe({
-      next: (response) => {
+    this.playerService.createPlayer(player, this.teamId).subscribe(
+      response => {
         console.log('Player created successfully:', response);
-        this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Player created successfully' });
       },
-      error: (error) => {
+      error => {
         console.error('Error creating player:', error);
-        this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Error creating player' });
       }
-    });
+    );
   }
 }
