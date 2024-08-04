@@ -4,12 +4,14 @@ import { CommonModule, DatePipe } from '@angular/common';
 import { TournamentService } from '../../services/tournament-service.service';
 import { ConfirmationService } from 'primeng/api';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { Router } from 'express';
+import { RouterModule } from '@angular/router';
 
 
 @Component({
   selector: 'app-tournament',
   standalone: true,
-  imports: [CommonModule, ConfirmDialogModule],
+  imports: [CommonModule, ConfirmDialogModule,RouterModule],
   templateUrl: './tournament.component.html',
   styleUrls: ['./tournament.component.scss'],
   providers: [DatePipe,ConfirmationService]

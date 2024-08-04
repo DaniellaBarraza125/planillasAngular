@@ -4,7 +4,7 @@
             <i class="pi pi-trash" (click)="confirmDelete()"></i>
         </div>
         <div id="tournamentInfo">
-            <div id="textDiv">
+            <div id="textDiv" [routerLink]="['/tournament',tournament._id]">
                 <img alt="Card" src="https://primefaces.org/cdn/primeng/images/card-ng.jpg" />
             </div>
             <div class="p-d-flex p-flex-column px-3" id="textDiv">

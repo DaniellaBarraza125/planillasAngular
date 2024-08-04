@@ -4,7 +4,6 @@
         <ng-template pTemplate="list" let-team>
             <div class="grid grid-nogutter justify-content-center">
                 <div class="dataview">
-
                     <app-team *ngFor="let team of teams" [team]="team" (deletedTeam)="onDeletedTeam($event)"></app-team>
                 </div>
             </div>

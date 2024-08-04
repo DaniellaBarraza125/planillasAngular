@@ -1,0 +1,16 @@
+<div *ngIf="isLoading">
+    <p>Loading...</p>
+</div>
+
+<div *ngIf="!isLoading && tournament">
+    <div class="team-detail-container">
+        <h1>{{ tournament.name }}</h1>
+        <p><strong>City:</strong> {{ tournament.place }}</p>
+        <h2>Players:</h2>
+
+    </div>
+</div>
+
+<div *ngIf="!isLoading && !tournament">
+    <p>No team details available.</p>
+</div>
