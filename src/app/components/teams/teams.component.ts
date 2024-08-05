@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { TeamInterface } from '../../interfaces/team-interface';
 import { TeamService } from '../../services/team-service.service';
 import { DataViewModule } from 'primeng/dataview';
@@ -15,7 +15,7 @@ import { CreateTeamComponent } from '../create-team/create-team.component';
   styleUrls: ['./teams.component.scss']
 })
 export class TeamsComponent implements OnInit {
-  public teams: Array<TeamInterface> = [];
+  @Input() teams: TeamInterface[] = [];
 
   constructor(private teamService: TeamService) {}
 
@@ -35,10 +35,11 @@ export class TeamsComponent implements OnInit {
     });
   }
 
-  onTeamCreated(newTeam: TeamInterface) {
-    this.teams.push(newTeam);
-  }
+
   onDeletedTeam(teamId: string) {
     this.teams = this.teams.filter(t => t._id !== teamId);
+  }
+  onTeamCreated(newTeam: TeamInterface) {
+    this.teams.push(newTeam);
   }
 }

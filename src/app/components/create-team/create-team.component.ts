@@ -1,3 +1,4 @@
+// create-team.component.ts
 import { Component, EventEmitter, Output } from '@angular/core';
 import { InputGroupModule } from 'primeng/inputgroup';
 import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
@@ -41,7 +42,7 @@ export class CreateTeamComponent {
     this.teamService.createTeam(team).subscribe(
       response => {
         this.messageService.add({ severity: 'success', summary: 'Success', detail: `${response.msg} ${team.name}` });
-        this.teamCreated.emit(team);
+        this.teamCreated.emit(team); 
         this.resetForm();
       },
       error => {

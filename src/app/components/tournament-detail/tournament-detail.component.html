@@ -1,12 +1,13 @@
 <div *ngIf="isLoading">
     <p>Loading...</p>
 </div>
-
+<h1>Teams</h1>
+<app-team *ngFor="let team of teams" [team]="team"></app-team>
 <div *ngIf="!isLoading && tournament">
     <div class="team-detail-container">
-        <h1>{{ tournament.name }}</h1>
+        <h2>{{ tournament.name }}</h2>
         <p><strong>City:</strong> {{ tournament.place }}</p>
-        <h2>Players:</h2>
+
 
     </div>
 </div>
